@@ -9,7 +9,7 @@ import {
 import ProductModule from './modules/product';
 import CarInsuranceModule from './modules/carInsurance';
 
-const products = [
+export const Products = [
   new ProductModule(MEDIUM_COVERAGE, 10, 20),
   new ProductModule(FULL_COVERAGE, 2, 0),
   new ProductModule(LOW_COVERAGE, 5, 7),
@@ -21,6 +21,6 @@ const products = [
   new ProductModule(SUPER_SALE, 3, 6),
 ];
 
-const carInsurance = new CarInsuranceModule(products);
+export const CarInsurance = new CarInsuranceModule(Products);
 // eslint-disable-next-line no-console
-console.log(carInsurance.stringAll(30));
+console.log(CarInsurance.stringAll(30));

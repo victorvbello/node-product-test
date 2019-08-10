@@ -22,4 +22,5 @@ const products = [
 ];
 
 const carInsurance = new CarInsuranceModule(products);
-carInsurance.printAll(30);
+// eslint-disable-next-line no-console
+console.log(carInsurance.stringAll(30));

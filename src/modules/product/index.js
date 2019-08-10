@@ -28,11 +28,10 @@ class Product {
     this.price = newPrice;
   };
 
-  print = () => {
+  toString = () => {
     const { name, sellIn, price } = this;
     const printName = CapitalizeConst(name);
-    // eslint-disable-next-line no-console
-    console.log(`${printName}, ${sellIn}, ${price}`);
+    return `${printName}, ${sellIn}, ${price}`;
   };
 }
 

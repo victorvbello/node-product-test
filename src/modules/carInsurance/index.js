@@ -3,26 +3,23 @@ class CarInsurance {
     this.products = products;
   }
 
-  printByDay = (day, beforePrint = () => {}) => {
+  stringByDay = (day, beforePrint = () => {}) => {
     const { products } = this;
-    // eslint-disable-next-line no-console
-    console.log(`-------- day ${day} --------`);
-    // eslint-disable-next-line no-console
-    console.log('name, sellIn, price');
     beforePrint();
-    products.forEach(product => product.print());
-    // eslint-disable-next-line no-console
-    console.log('');
+    return `${'\n'}-------- day ${day} --------${'\n'}name, sellIn, price${'\n'}${products
+      .map(product => `${product.toString()}`)
+      .join('\n')}`;
   };
 
-  printAll = days => {
+  stringAll = days => {
     const { products } = this;
-    this.printByDay(0);
+    let stringInit = this.stringByDay(0);
     [...Array(days).keys()].forEach(day => {
-      this.printByDay(day + 1, () =>
+      stringInit = `${stringInit}${'\n'}${this.stringByDay(day + 1, () =>
         products.forEach(product => product.handleDecrementDate()),
-      );
+      )}`;
     });
+    return stringInit;
   };
 }
 
